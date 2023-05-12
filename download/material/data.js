@@ -92,12 +92,45 @@ const movies = [
 
 //first task
 
-const newActors = movies.map(person =>{
-  const res =  person.actors;
-   res.map(item=>{
-     let date = new Date();
-     let age = date.getFullYear() - item.birthyear;
-     item.age = age;
-     console.log(item)
-   })
- });
+// const newActors = movies.map(person =>{
+//   const res =  person.actors;
+//    res.map(item=>{
+//      let date = new Date();
+//      let age = date.getFullYear() - item.birthyear;
+//      item.age = age;
+//      console.log(item)
+//    })
+//  });
+
+
+//second task
+
+  // const arrayGenreMovies = movies.map((item)=>{
+  //   const objNew = new Object();
+  //   const result = item.genre;
+  //         result.map((res)=>{    
+  //           objNew.name = res;
+  //           objNew.movies = item.similar;
+  //           console.log([objNew]);
+  //         });
+          
+  // });
+
+
+  //third task
+
+  const headerTitle = document.querySelector('.header-title');
+  const ratedUserFilms = document.querySelector('.header-rating__user');
+  const imgBlockMain = document.querySelector('.main-block__logo');
+  const imgMain = document.createElement('img');
+        imgMain.src ='images/1.jpg';
+        imgMain.alt = "wefwefe";
+        imgBlockMain.append(imgMain);
+  const discriptionText = document.querySelector('.description_text');
+        discriptionText.textContent = movies[0].description;
+  const mainCardGenre = document.querySelector('.main-card__genre');
+  const blockGenre = document.querySelector('.card-genre');
+
+
+
+
