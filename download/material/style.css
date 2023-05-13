@@ -168,3 +168,37 @@ img{
    width: 108px;
    height: 135px;
 }
+
+
+.block_ratings{
+    visibility: hidden;
+    width: 123px;
+    height: 143px;
+    background-color: #D9D9D9;
+    margin: 0 auto;
+    text-align: center;
+    
+    
+}
+
+.block__ratings-text{
+    font-size: 10px;
+}
+.block__ratings-title{
+font-size: 14px;
+}
+
+.block__ratings-input{
+    width: 63px;
+    height: 24px;
+    text-align: center;
+    margin-bottom: 13px;
+
+}
+
+.block_ratings-btn{
+    width: 63px;
+    height: 23px;
+    background-color:black;
+    color: white;
+}

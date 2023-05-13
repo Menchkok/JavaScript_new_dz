@@ -1,6 +1,9 @@
 
 
 const headerBlock = document.querySelector('.wrapper');
+const blockRateds = document.querySelector('.block_ratings');
+const blockRatedTitle = document.querySelector('.block__ratings-title');
+const inputUserRating = document.querySelector('.block__ratings-input');
 
       
 
@@ -230,28 +233,37 @@ function getMovies(id){
               </div>
           </div>
       </div>
-  </div>
-      `};
+    </div>
+   `
+    };
 
-
+    
      
  
-   })
-    
-   const ratedNumberStyle = document.querySelector('.header_rating_number');
-   if(ratedNumberStyle.innerText <= 5){
-      ratedNumberStyle.style.color ='red';
-   }else if(ratedNumberStyle.innerText >= 5 && ratedNumberStyle.innerText <= 8){
-    ratedNumberStyle.style.color ='yellow';
-   }else{
-    ratedNumberStyle.style.color ='green';
-   };
-    
+   });
+   document.querySelector('.header__rating').onmousemove = function(event){
+    blockRateds.style.visibility = "visible";
 }
 
+  
+    
+   const ratedNumberStyle = document.querySelector('.header_rating_number');
+          if(ratedNumberStyle.innerText <= 5){
+              ratedNumberStyle.style.color ='red';
+          }else if(ratedNumberStyle.innerText >= 5 && ratedNumberStyle.innerText <= 8){
+            ratedNumberStyle.style.color ='yellow';
+          }else{
+            ratedNumberStyle.style.color ='green';
+          };
+  
+          
+   
+   
+}
+   
  
 
-  getMovies(1);
+  getMovies(3);
 
 
 
