@@ -1,6 +1,6 @@
 
 
-
+const headerBlock = document.querySelector('.wrapper');
 
 
 
@@ -118,18 +118,124 @@ const movies = [
 
 
   //third task
+  const functionImg = (item) =>{
+    switch(item){
+      case "Chris Pratt":
+        return "images/actors/pratt.jpg";
+        case "Bradley Cooper":
+          return "images/actors/cooper.jpg";
+        case "Zoe Saldana":
+          return "images/actors/saldana.jpg";
+        case "Gerard Butler":
+          return "images/actors/butler.jpg";
+        case "Mike Colter":
+          return "images/actors/cotler.jpg";
+        case "Lilly Krug":
+          return "images/actors/krug.jpg";
+        case "Julianne Moore":
+          return "images/actors/moore.jpg";
+        case "Sebastian Stan":
+          return "images/actors/stan.jpg";
+        case "Briana Middleton":
+          return "images/actors/middleton.jpg";
+        case "Guardians of the Galaxy Vol. 3":
+          return "/download/material/images/1.jpg";
+        case "Plane":
+          return "/download/material/images/2.jpg";
+        case "Sharper":
+          return "/download/material/images/3.jpg";
+    }
+  }
+  
+function getMovies(id){
+   movies.filter((item)=>{
+    if(item.id == id){
+      headerBlock.innerHTML = `
+      <div class="main-card">
+      <div class="header">
+          <div class="header_block">
+              <div class="block_title">
+                  <h1 class="header-title">${item.title}</h1>
+              </div>
+          <div class="header__rating">
+              <p class="header__rating-text">Rating:</p>
+              <p class="header-rating__user">${item.rating}</p>
+              <p class="header-rating-number">/ 10</p>
+          </div>
+          </div>
+      </div>
+      <div class="main-block">
+          <div class="main-block__logo">
+              <a href="#"><img src=${functionImg(item.title)} alt=""></a>
+          </div>
+          <div class="main-block__description">
+              <div class="description">
+                  <p class="description_text">
+                     ${item.description}
+                  </p>
+              </div>
+              <div class="main-card__genre">
+                  <div class="card-genre">
+                      <p class="text-genre">
+                          ${item.genre[0]}
+                      </p>
+                  </div>
+                  <div class="card-genre">
+                      <p class="text-genre">
+                      ${item.genre[1]}
+                      </p>
+                  </div>
+                  <div class="card-genre">
+                      <p class="text-genre">
+                      ${item.genre[2]}
+                      </p>
+                  </div>
+          
+              </div>
+                  <p class="cast__text">cast :</p>
+              <div class="main-cast__block">
+                 <div class="cast__actors">
+                  <a href=""><img class="cast__actors-img" src=${functionImg(item.actors[0].name)} alt=""> </a>
+                 </div>
+                 <div class="cast__actors">
+                  <a href=""><img class="cast__actors-img" src=${functionImg(item.actors[1].name)} alt=""> </a>
+                 </div>
+                 <div class="cast__actors">
+                  <a href=""><img class="cast__actors-img" src=${functionImg(item.actors[2].name)} alt=""> </a>
+                 </div>
+              </div>
+          </div>
+      </div>
+      <div class="similar__block">
+          <h2 class="similar__block-text">Similar movies</h2>
+      </div>
+      <div class="main-block__movies">
+          
+          <div class="movies-card__films">
+              <div class="movies-card__size">
+                  <a href="index2.html">
+                      <img src=${functionImg(item.similar[0])} alt="">
+                  </a>
+              </div>
+              <div class="movies-card__size">
+                  <a href="index3.html">
+                      <img src=${functionImg(item.similar[1])} alt="">
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+      `
+      
+    };
+   })
+    
+  
+    
+}
+  getMovies(2);
 
-  const headerTitle = document.querySelector('.header-title');
-  const ratedUserFilms = document.querySelector('.header-rating__user');
-  const imgBlockMain = document.querySelector('.main-block__logo');
-  const imgMain = document.createElement('img');
-        imgMain.src ='images/1.jpg';
-        imgMain.alt = "wefwefe";
-        imgBlockMain.append(imgMain);
-  const discriptionText = document.querySelector('.description_text');
-        discriptionText.textContent = movies[0].description;
-  const mainCardGenre = document.querySelector('.main-card__genre');
-  const blockGenre = document.querySelector('.card-genre');
+
 
 
 
