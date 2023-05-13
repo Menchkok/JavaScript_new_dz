@@ -2,6 +2,8 @@
 
 const headerBlock = document.querySelector('.wrapper');
 
+      
+
 
 
 const movies = [
@@ -139,14 +141,16 @@ const movies = [
         case "Briana Middleton":
           return "images/actors/middleton.jpg";
         case "Guardians of the Galaxy Vol. 3":
-          return "/download/material/images/1.jpg";
+          return "./images/1.jpg";
         case "Plane":
-          return "/download/material/images/2.jpg";
+          return "./images/2.jpg";
         case "Sharper":
-          return "/download/material/images/3.jpg";
+          return "./images/3.jpg";
     }
   }
-  
+
+
+
 function getMovies(id){
    movies.filter((item)=>{
     if(item.id == id){
@@ -159,7 +163,9 @@ function getMovies(id){
               </div>
           <div class="header__rating">
               <p class="header__rating-text">Rating:</p>
-              <p class="header-rating__user">${item.rating}</p>
+              <div class="header__rating_block">
+                    <p class="header_rating_number">${item.rating}</p>
+              </div>
               <p class="header-rating-number">/ 10</p>
           </div>
           </div>
@@ -225,15 +231,27 @@ function getMovies(id){
           </div>
       </div>
   </div>
-      `
-      
-    };
+      `};
+
+
+     
+ 
    })
     
-  
+   const ratedNumberStyle = document.querySelector('.header_rating_number');
+   if(ratedNumberStyle.innerText <= 5){
+      ratedNumberStyle.style.color ='red';
+   }else if(ratedNumberStyle.innerText >= 5 && ratedNumberStyle.innerText <= 8){
+    ratedNumberStyle.style.color ='yellow';
+   }else{
+    ratedNumberStyle.style.color ='green';
+   };
     
 }
-  getMovies(2);
+
+ 
+
+  getMovies(1);
 
 
 
