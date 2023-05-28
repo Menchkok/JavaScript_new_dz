@@ -4,6 +4,9 @@ const headerBlock = document.querySelector('.wrapper');
 const blockRateds = document.querySelector('.block_ratings');
 const blockRatedTitle = document.querySelector('.block__ratings-title');
 const inputUserRating = document.querySelector('.block__ratings-input');
+const headerRatingNumber = document.querySelector('.header_rating_number');
+const btnTest = document.querySelector('.block_ratings-btn');
+
 
       
 
@@ -103,26 +106,28 @@ const movies = [
 //      let date = new Date();
 //      let age = date.getFullYear() - item.birthyear;
 //      item.age = age;
-//      console.log(item)
+//      return res;
 //    })
+//   console.log(res)
 //  });
+
+//-------------------------------------------
 
 
 //second task
+  // const createArrayObject = movies.map((event)=>{
+  //   const test = event.genre;
+  //   const tests = test.join(',');
+  //     const objNew = {
+  //       name:tests,
+  //       movies:event.similar,
+  //     }
+  //     return objNew;
+  // })
+  // console.log(createArrayObject);
+//-------------------------------------------
 
-  // const arrayGenreMovies = movies.map((item)=>{
-  //   const objNew = new Object();
-  //   const result = item.genre;
-  //         result.map((res)=>{    
-  //           objNew.name = res;
-  //           objNew.movies = item.similar;
-  //           console.log([objNew]);
-  //         });
-          
-  // });
-
-
-  //third task
+  // third task
   const functionImg = (item) =>{
     switch(item){
       case "Chris Pratt":
@@ -152,11 +157,16 @@ const movies = [
     }
   }
 
-
+  
 
 function getMovies(id){
    movies.filter((item)=>{
     if(item.id == id){
+      
+
+      blockRatedTitle.textContent = `${item.title}`;
+
+
       headerBlock.innerHTML = `
       <div class="main-card">
       <div class="header">
@@ -235,35 +245,37 @@ function getMovies(id){
       </div>
     </div>
    `
+
+
+   function clickBtn(event){
+    event.preventDefault();
+    return item.rating.textContent = inputUserRating.value;
+  }
+
+    
+
+  btnTest.addEventListener('click',clickBtn);
+
     };
-
-    
-     
- 
    });
-   document.querySelector('.header__rating').onmousemove = function(event){
-    blockRateds.style.visibility = "visible";
-}
+          
 
-  
-    
-   const ratedNumberStyle = document.querySelector('.header_rating_number');
+
+          const ratedNumberStyle = document.querySelector('.header_rating_number');
           if(ratedNumberStyle.innerText <= 5){
               ratedNumberStyle.style.color ='red';
           }else if(ratedNumberStyle.innerText >= 5 && ratedNumberStyle.innerText <= 8){
             ratedNumberStyle.style.color ='yellow';
           }else{
             ratedNumberStyle.style.color ='green';
-          };
-  
-          
-   
-   
+          };  
 }
-   
- 
+getMovies(3);
 
-  getMovies(3);
+
+
+
+
 
 
 
