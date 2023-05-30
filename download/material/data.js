@@ -4,12 +4,7 @@ const headerBlock = document.querySelector('.wrapper');
 const blockRateds = document.querySelector('.block_ratings');
 const blockRatedTitle = document.querySelector('.block__ratings-title');
 const inputUserRating = document.querySelector('.block__ratings-input');
-const headerRatingNumber = document.querySelector('.header_rating_number');
 const btnTest = document.querySelector('.block_ratings-btn');
-
-
-      
-
 
 
 const movies = [
@@ -93,41 +88,36 @@ const movies = [
   },
 ];
 
+//TASK 1
 
-
-
-
-
-//first task
-
-// const newActors = movies.map(person =>{
-//   const res =  person.actors;
-//    res.map(item=>{
-//      let date = new Date();
-//      let age = date.getFullYear() - item.birthyear;
-//      item.age = age;
-//      return res;
-//    })
-//   console.log(res)
-//  });
+const newActors = movies.map(person =>{
+  const res =  person.actors;
+   res.map(item=>{
+     let date = new Date();
+     let age = date.getFullYear() - item.birthyear;
+     item.age = age;
+     return res;
+   })
+  console.log(res)
+ });
 
 //-------------------------------------------
 
 
-//second task
-  // const createArrayObject = movies.map((event)=>{
-  //   const test = event.genre;
-  //   const tests = test.join(',');
-  //     const objNew = {
-  //       name:tests,
-  //       movies:event.similar,
-  //     }
-  //     return objNew;
-  // })
-  // console.log(createArrayObject);
+//TASK 2
+  const createArrayObject = movies.map((event)=>{
+    const test = event.genre;
+    const tests = test.join(',');
+      const objNew = {
+        name:tests,
+        movies:event.similar,
+      }
+      return objNew;
+  })
+  console.log(createArrayObject);
 //-------------------------------------------
 
-  // third task
+  // TASK 3
   const functionImg = (item) =>{
     switch(item){
       case "Chris Pratt":
@@ -162,11 +152,8 @@ const movies = [
 function getMovies(id){
    movies.filter((item)=>{
     if(item.id == id){
-      
 
       blockRatedTitle.textContent = `${item.title}`;
-
-
       headerBlock.innerHTML = `
       <div class="main-card">
       <div class="header">
@@ -247,33 +234,48 @@ function getMovies(id){
    `
 
 
-   function clickBtn(event){
-    event.preventDefault();
-    return item.rating.textContent = inputUserRating.value;
-  }
+        //TASK4==========
+        let ratingNumber = document.querySelector('.header_rating_number');
 
-    
-
-  btnTest.addEventListener('click',clickBtn);
-
-    };
-   });
-          
-
-
-          const ratedNumberStyle = document.querySelector('.header_rating_number');
-          if(ratedNumberStyle.innerText <= 5){
-              ratedNumberStyle.style.color ='red';
-          }else if(ratedNumberStyle.innerText >= 5 && ratedNumberStyle.innerText <= 8){
-            ratedNumberStyle.style.color ='yellow';
-          }else{
-            ratedNumberStyle.style.color ='green';
+        function colorRating(){
+          if(ratingNumber.innerText <= 5){
+            ratingNumber.style.color ='red';
+          }else if(ratingNumber.innerText >= 5 && ratingNumber.innerText <= 8){
+          ratingNumber.style.color ='yellow';
+         }else{
+          ratingNumber.style.color ='green';
           };  
+        }
+        let arrayRated = [];
+
+        function clickBtn(event){
+          event.preventDefault();
+          let result = Number(inputUserRating.value);
+          
+          arrayRated.push(result);
+          
+          const sum = arrayRated.reduce((accumulator,currentValue)=> accumulator + currentValue,0);
+          const length = arrayRated.length;
+          const res = sum/length;
+          const fixResult = res.toFixed(1);
+          ratingNumber.innerHTML = `${fixResult}`;
+        
+          colorRating();
+        }
+        
+        btnTest.addEventListener('click',clickBtn);
+      //======================
+          colorRating();
+    };
+
+
+   });
+   
 }
-getMovies(3);
+getMovies(1);
 
 
-
+          
 
 
 
