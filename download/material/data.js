@@ -7,6 +7,9 @@ const inputUserRating = document.querySelector('.block__ratings-input');
 const btnTest = document.querySelector('.block_ratings-btn');
 
 
+
+
+
 const movies = [
   {
     id: 1,
@@ -231,9 +234,9 @@ function getMovies(id){
           </div>
       </div>
     </div>
-   `
+   `      
 
-
+        
         //TASK4==========
         let ratingNumber = document.querySelector('.header_rating_number');
 
@@ -269,13 +272,26 @@ function getMovies(id){
     };
 
 
+    
+
+
    });
+   const headerRatingJob = document.querySelector('.header__rating');
+
+   function visibleMouseOver(){
+    const blockRatingsMouse = document.querySelector('.block_ratings');
+    blockRatingsMouse.style.visibility = "visible";
+   }
+   headerRatingJob.addEventListener('mouseover',visibleMouseOver);
+   
    
 }
-getMovies(1);
 
 
-          
+getMovies(2);
+
+
+ 
 
 
 
